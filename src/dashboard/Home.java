@@ -5,6 +5,9 @@
  */
 package dashboard;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Chathu
@@ -27,6 +30,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        choice2 = new java.awt.Choice();
         Background = new javax.swing.JPanel();
         Sidepane = new javax.swing.JPanel();
         btn_document = new javax.swing.JPanel();
@@ -38,7 +42,6 @@ public class Home extends javax.swing.JFrame {
         btn_incentives = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         btn_coming = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -46,19 +49,33 @@ public class Home extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         choice1 = new java.awt.Choice();
-        choice2 = new java.awt.Choice();
+        choice3 = new java.awt.Choice();
+        jLabel10 = new javax.swing.JLabel();
+
+        choice2.setEnabled(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
+        Background.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                BackgroundFocusLost(evt);
+            }
+        });
+        Background.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackgroundMouseClicked(evt);
+            }
+        });
 
         Sidepane.setBackground(new java.awt.Color(54, 33, 89));
         Sidepane.setForeground(new java.awt.Color(0, 0, 0));
@@ -77,6 +94,16 @@ public class Home extends javax.swing.JFrame {
         Sidepane.add(btn_document, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 270, 60));
 
         btn_employee.setBackground(new java.awt.Color(85, 65, 118));
+        btn_employee.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btn_employeeMouseMoved(evt);
+            }
+        });
+        btn_employee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_employeeMousePressed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/images/icons8-home-50.png"))); // NOI18N
@@ -89,6 +116,16 @@ public class Home extends javax.swing.JFrame {
         Sidepane.add(btn_employee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 270, 60));
 
         btn_incentives.setBackground(new java.awt.Color(64, 43, 100));
+        btn_incentives.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btn_incentivesMouseMoved(evt);
+            }
+        });
+        btn_incentives.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_incentivesMousePressed(evt);
+            }
+        });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/images/icons8-gift-50.png"))); // NOI18N
@@ -100,11 +137,17 @@ public class Home extends javax.swing.JFrame {
 
         Sidepane.add(btn_incentives, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 270, 60));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel10.setText("KeepToo");
-        Sidepane.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 180, 30));
-
         btn_coming.setBackground(new java.awt.Color(64, 43, 100));
+        btn_coming.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btn_comingMouseMoved(evt);
+            }
+        });
+        btn_coming.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_comingMousePressed(evt);
+            }
+        });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard/images/icons8-plus-50.png"))); // NOI18N
@@ -131,6 +174,10 @@ public class Home extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         Sidepane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 80, 250, 10));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel14.setText("KeepToo");
+        Sidepane.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 180, 30));
 
         jPanel1.setBackground(new java.awt.Color(110, 89, 221));
 
@@ -168,9 +215,9 @@ public class Home extends javax.swing.JFrame {
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
+                {"2/3/2018", "1122025", "UGH"},
+                {"3/3/2018", "1254896", "BI"},
+                {"3/8/2017", "0758269", "TCH"},
                 {null, null, null}
             },
             new String [] {
@@ -195,7 +242,14 @@ public class Home extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setPreferredWidth(10);
         }
 
-        choice2.setEnabled(false);
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("X");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
         Background.setLayout(BackgroundLayout);
@@ -210,29 +264,34 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
                         .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122))))
+                        .addGap(219, 219, 219))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addContainerGap())))
             .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(BackgroundLayout.createSequentialGroup()
                     .addGap(282, 282, 282)
-                    .addComponent(choice2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(choice3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(419, Short.MAX_VALUE)))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Sidepane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(BackgroundLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(BackgroundLayout.createSequentialGroup()
-                    .addGap(189, 189, 189)
-                    .addComponent(choice2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(380, Short.MAX_VALUE)))
+                    .addGap(201, 201, 201)
+                    .addComponent(choice3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(368, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -249,6 +308,68 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        System.exit(0);
+    }//GEN-LAST:event_jLabel10MousePressed
+
+    private void BackgroundFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_BackgroundFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackgroundFocusLost
+
+    private void BackgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackgroundMouseClicked
+        String[] all = {"1","2","3","4"};
+        for (String item : all)
+        {
+            choice1.addItem(item);
+            choice3.addItem(item);
+        }
+    }//GEN-LAST:event_BackgroundMouseClicked
+
+    private void btn_employeeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_employeeMousePressed
+        setColor(btn_employee);
+        resetColor(btn_incentives);
+        resetColor(btn_coming);
+    }//GEN-LAST:event_btn_employeeMousePressed
+
+    private void btn_incentivesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_incentivesMousePressed
+        setColor(btn_incentives);
+        resetColor(btn_coming);
+        resetColor(btn_employee);
+    }//GEN-LAST:event_btn_incentivesMousePressed
+
+    private void btn_comingMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_comingMousePressed
+        setColor(btn_coming);
+        resetColor(btn_employee);
+        resetColor(btn_incentives);
+    }//GEN-LAST:event_btn_comingMousePressed
+
+    private void btn_comingMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_comingMouseMoved
+        setColor(btn_coming);
+        resetColor(btn_employee);
+        resetColor(btn_incentives);
+    }//GEN-LAST:event_btn_comingMouseMoved
+
+    private void btn_incentivesMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_incentivesMouseMoved
+        setColor(btn_incentives);
+        resetColor(btn_coming);
+        resetColor(btn_employee);
+    }//GEN-LAST:event_btn_incentivesMouseMoved
+
+    private void btn_employeeMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_employeeMouseMoved
+        setColor(btn_employee);
+        resetColor(btn_incentives);
+        resetColor(btn_coming);
+    }//GEN-LAST:event_btn_employeeMouseMoved
+
+    void setColor(JPanel panel)
+    {
+        panel.setBackground(new Color(85,65,118));
+    }
+    
+    void resetColor(JPanel panel)
+    {
+        panel.setBackground(new Color(64,43,100));
+    }
     /**
      * @param args the command line arguments
      */
@@ -260,7 +381,7 @@ public class Home extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -294,11 +415,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel btn_incentives;
     private java.awt.Choice choice1;
     private java.awt.Choice choice2;
+    private java.awt.Choice choice3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
